@@ -117,3 +117,33 @@ class CreateRepositoryPage(BasePage):
             driver=self.driver,
             locator=locator
         )
+
+
+class PseudoPage(BasePage):
+
+    def __init__(self, driver):
+        super().__init__(driver=driver)
+
+    @property
+    def username_input(self):
+        locator = LoginPageLocator.username_input
+        return InputElement(
+            driver=self.driver,
+            locator=locator
+        )
+
+    @property
+    def password_input(self):
+        locator = LoginPageLocator.password_input
+        return InputElement(
+            driver=self.driver,
+            locator=locator
+        )
+
+    @property
+    def submit_button(self):
+        locator = LoginPageLocator.submit_button
+        return BaseElement(
+            driver=self.driver,
+            locator=locator
+        )

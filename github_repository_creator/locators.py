@@ -23,3 +23,6 @@ class CreateRepositoryPageLocator:
     verify_error_message = '//div[contains(text(), "Two-factor authentication\
          failed.")]'
     submit_button = (By.CSS_SELECTOR, "button.first-in-line")
+
+class PseudoPageLocator:
+    pass
