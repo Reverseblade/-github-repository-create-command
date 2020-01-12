@@ -4,7 +4,7 @@ SCRIPT_PATH="$(cd $(dirname $BASH_SOURCE); pwd)"
 GITHUB_NAME="yout github name"
 EDITOR_NAME='your editor name'
 
-function create-github-repository() {
+function create-github-repo() {
     if [ $# -ne 1 ]
     then
         echo 'Repository name must be specified.' 1>&2

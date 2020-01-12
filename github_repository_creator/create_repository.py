@@ -43,7 +43,7 @@ login_page.submit_button.click()
 logging.info('Logged in to Github OK!')
 
 # two-way authentication
-if config.HAS_TWO_WAY_AUTHENTICATION:
+if config.TWO_WAY_AUTHENTICATION:
     auth_code = input('Enter your verification code: ')
     two_way_auth_page = TwoWayAuthenticationPage(login_page.driver)
     two_way_auth_page.input_box.type(auth_code)
