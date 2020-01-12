@@ -1,4 +1,6 @@
 #!/bin/bash
 
 SCRIPT_PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
-echo "# github-repository-create-command\\nsource ${SCRIPT_PATH}/commands.sh" >> ~/.bashrc
+SHELL_CONFIG_PATH=~/.bashrc
+
+echo "# github-new-command\\nsource ${SCRIPT_PATH}/commands.sh" >> $SHELL_CONFIG_PATH

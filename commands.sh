@@ -4,13 +4,20 @@ SCRIPT_PATH="$(cd $(dirname $BASH_SOURCE); pwd)"
 GITHUB_NAME="yout github name"
 EDITOR_NAME='your editor name'
 
-function create-github-repo() {
+function github-new() {
     if [ $# -ne 1 ]
     then
         echo 'Repository name must be specified.' 1>&2
         return 2> /dev/null
         exit 1
     fi
+
+    git status 1> /dev/null
+    if [ $? -ne 0 ]
+    then
+        return 2> /dev/null
+        exit 1
+    fi 
 
     repository_name=$1
     python ${SCRIPT_PATH}/github_repository_creator/create_repository.py ${repository_name}

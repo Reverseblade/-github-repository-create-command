@@ -40,7 +40,7 @@ login_page.open()
 login_page.username_input.type(config.GITHUB_USERNAME)
 login_page.password_input.type(config.GITHUB_PASSWORD)
 login_page.submit_button.click()
-logging.info('Logged in to Github OK!')
+logging.info('Logged success')
 
 # two-way authentication
 if config.TWO_WAY_AUTHENTICATION:
@@ -48,7 +48,7 @@ if config.TWO_WAY_AUTHENTICATION:
     two_way_auth_page = TwoWayAuthenticationPage(login_page.driver)
     two_way_auth_page.input_box.type(auth_code)
     two_way_auth_page.verify_button.click()
-    logging.info('two-way authentication OK!')
+    logging.info('two-way authentication OK')
 
 # create a new repository
 create_repository_page = CreateRepositoryPage(driver)
@@ -67,7 +67,7 @@ if create_repository_page.has_verify_error_text == True:
     two_way_auth_page = TwoWayAuthenticationPage(login_page.driver)
     two_way_auth_page.input_box.type(auth_code)
     two_way_auth_page.verify_button.click()
-    logging.info('two-way authentication OK!')
+    logging.info('two-way authentication OK')
 
 current_url = create_repository_page.driver.current_url
 
