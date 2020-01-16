@@ -1,8 +1,8 @@
 #!/bin/bash -eu
 
-SCRIPT_PATH="$(cd $(dirname $BASH_SOURCE); pwd)"
-GITHUB_NAME="yout github name"
-EDITOR_NAME='your editor name'
+SCRIPT_PATH="$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)"
+GITHUB_NAME=""
+EDITOR_NAME=""
 
 function github-new() {
     if [ $# -ne 1 ]
@@ -15,8 +15,7 @@ function github-new() {
     git status 1> /dev/null
     if [ $? -ne 0 ]
     then
-        return 2> /dev/null
-        exit 1
+        git init
     fi 
 
     repository_name=$1
@@ -38,6 +37,10 @@ function github-new() {
         exit 1
     fi  
 
+    touch README.md
+    echo "# ${repository_name}" >> README.md
+    git add README.md
+    git commit -m 'initial commit'
     git push -u origin master
 
     if [ $? -ne 0 ]
